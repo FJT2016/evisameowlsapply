@@ -110,17 +110,14 @@ and passwords used to access `/admin`.
 
 ## Deploying
 
-This app needs a real server runtime — it will not work as a static GitHub Pages
-site. Typical options:
+GitHub Pages **will not work** — this app has a Python backend and a MongoDB
+database. The free three-service setup is:
 
-- **Frontend:** Vercel, Netlify, or Cloudflare Pages (build command `yarn build`,
-  output `frontend/build`).
-- **Backend:** Render, Railway, Fly.io, or any container host that can run a
-  Python ASGI app.
-- **Database:** MongoDB Atlas (free tier works).
+- **Database:** MongoDB Atlas (free M0 tier).
+- **Backend:** Render (one-click via the included `render.yaml`).
+- **Frontend:** Vercel (root directory `frontend`, set `REACT_APP_BACKEND_URL`).
 
-Set the environment variables listed above on whatever host you choose, and point
-the frontend at the backend URL via `CORS_ORIGINS` on the backend.
+Step-by-step instructions: **[DEPLOYMENT.md](./DEPLOYMENT.md)**.
 
 ## Documentation
 
